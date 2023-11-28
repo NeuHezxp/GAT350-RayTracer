@@ -73,4 +73,6 @@ int main(int argc, char* argv[])
  *} BRUTE FORCE METHOD
  *rgba_t rgba = ColorToRGBA(color);
  *std::fill(m_buffer.begin(),)
+ *
+ *pitch = width of buffer in bytes
  */
