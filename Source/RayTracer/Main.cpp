@@ -1,19 +1,32 @@
 #include <iostream>
-
+#include <ctime>
+#include "Random.h"
+#include "Ray.h"
 #include "Renderer.h"
+#include "Canvas.h"
 int main(int argc, char* argv[])
 {
 	std::cout << "Hello World" << std::endl;
-
+	Random random;
 	Renderer renderer;
 	renderer.Initialize();
 	renderer.CreateWindow("Ray Tracer", 400, 300);
-
+	Canvas canvas(400, 300, renderer);
+	random.seedRandom(static_cast<unsigned int>(time(nullptr)));
 	bool quit = false;
 	while (!quit)
 	{
 		SDL_Event event;
 		SDL_PollEvent(&event);
+		canvas.Clear({ 0, 0, 0, 1 });
+		for (int i = 0; i < 1000; i++) {
+			glm::ivec2 randomPoint = glm::ivec2(random.random(0, 399), random.random(0, 299));
+			Color::color4_t randomColor = Color::color4_t(random.random(0,244), random.random(0, 244), random.random(0, 244), 1.0f);
+			canvas.DrawPoint(randomPoint, randomColor);
+		}
+		canvas.Update();
+
+		renderer.PresentCanvas(canvas);
 		switch (event.type)
 		{
 		case SDL_QUIT:

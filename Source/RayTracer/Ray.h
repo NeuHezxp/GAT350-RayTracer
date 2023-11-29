@@ -16,6 +16,6 @@ struct ray_t {
     glm::vec3 operator*(float distance) const {
         return At(distance);
     }
-    glm::vec3 origin;
-    glm::vec3 direction;
+    glm::vec3 origin = {};
+    glm::vec3 direction = {};
 };
