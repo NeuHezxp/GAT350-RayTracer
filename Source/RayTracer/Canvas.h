@@ -1,38 +1,29 @@
 #pragma once
-
 #include <vector>
 #include <glm/glm.hpp>
-#include "Color.h" 
-#include <SDL.h> // Required for SDL_Texture
+#include "Renderer.h"  // Include the Renderer header
+#include "Color.h"
 
-// Forward declarations
-class Renderer; 
-struct SDL_Texture;
+namespace ray
+{
+    class Canvas
+    {
+    public:
+        Canvas(int width, int height, const Renderer& renderer);
+        ~Canvas();
 
-class Canvas {
-public:
-    // Constructor and Destructor
-    Canvas(int width, int height, const Renderer& renderer);
-    ~Canvas();
+        void Update();
 
-    // Member functions
-    void Update();
-    void Clear(const Color::color4_t& color);
-    void DrawPoint(const glm::ivec2& point, const Color::color4_t& color);
+        void Clear(const color4_t& color);
+        void DrawPoint(const glm::ivec2& point, const color4_t& color);
 
-    // Get size of the canvas
-    const glm::ivec2& GetSize() const { return m_size; }
+        glm::vec2 GetSize() const { return m_size; }
 
-    // Allow Renderer to access Canvas' private data
-    friend class Renderer;
+        friend class Renderer;  // Allow Renderer to access Canvas private data
 
-private:    
-    // SDL Texture pointer
-    SDL_Texture* m_texture = nullptr;
-
-    // Buffer to store canvas data
-    std::vector<Color::rgba_t> m_buffer;
-
-    // Canvas size
-    glm::ivec2 m_size = glm::ivec2(0, 0);
-};
+    private:
+        SDL_Texture* m_texture = nullptr;
+        std::vector<rgba_t> m_buffer;
+        glm::ivec2 m_size{ 0 };
+    };
+}

@@ -1,3 +1,8 @@
-C:\Homework\Quarter 5\3D new\RayTracer\GAT350-RayTracer\Source\RayTracer\Canvas.cpp;C:\Homework\Quarter 5\3D new\RayTracer\GAT350-RayTracer\Temp\Canvas.obj
-C:\Homework\Quarter 5\3D new\RayTracer\GAT350-RayTracer\Source\RayTracer\Main.cpp;C:\Homework\Quarter 5\3D new\RayTracer\GAT350-RayTracer\Temp\Main.obj
-C:\Homework\Quarter 5\3D new\RayTracer\GAT350-RayTracer\Source\RayTracer\Renderer.cpp;C:\Homework\Quarter 5\3D new\RayTracer\GAT350-RayTracer\Temp\Renderer.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Camera.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Camera.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Canvas.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Canvas.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Main.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Main.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Material.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Material.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Plane.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Plane.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Renderer.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Renderer.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Scene.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Scene.obj
+D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Source\RayTracer\Sphere.cpp;D:\Homework\Code\C++\RayTracer\RayTracer\GAT350-RayTracer\Temp\Sphere.obj
