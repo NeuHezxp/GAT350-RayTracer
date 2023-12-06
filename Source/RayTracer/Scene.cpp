@@ -1,11 +1,14 @@
 #include "Scene.h"
+
+#include <iomanip>
+
 #include "Canvas.h"
 #include "MathUtils.h"
 #include <glm/gtc/random.hpp>
 
 namespace ray
 {
-	void Scene::Render(Canvas& canvas, int numSamples)
+	void Scene::Render(Canvas& canvas, int numSamples, int depth)
 	{
 		// cast ray for each point (pixel) on the canvas
 		for (int y = 0; y < canvas.GetSize().y; y++)
@@ -19,11 +22,9 @@ namespace ray
 				color3_t color{ 0 };
 				// cast a ray for each sample, accumulate color value for each sample
 				// each ray will have a random offset
-				for (int i = 0; i < numSamples; i++) //<iterate number of samples>
+				for (int i = 0; i < numSamples; i++)
 				{
 					// get normalized (0 - 1) point coordinates from pixel
-					// add random x and y offset (0-1) to each pixel
-					//glm::vec2 point = (pixel + <add vec2 of random01>) / canvas.GetSize();
 					glm::vec2 point = (pixel + glm::vec2{ random01(), random01() }) / canvas.GetSize();
 					// flip y
 					point.y = 1.0f - point.y;
@@ -32,16 +33,19 @@ namespace ray
 					ray_t ray = m_camera->GetRay(point);
 
 					// cast ray into scene
-					// add color value from trace
+					// set color value from trace
 					raycastHit_t raycastHit;
-					color += Trace(ray, 0, 100, raycastHit, m_depth);
+					color += Trace(ray, 0, 100, raycastHit, depth);
 				}
 
 				// draw color to canvas point (pixel)
 				// get average color (average = (color + color + color) / number of samples)
-				color /= numSamples; //<divide color by number of samples>
+				color /= numSamples;
 				canvas.DrawPoint(pixel, color4_t(color, 1));
 			}
+
+			// Display progress percentage
+			std::cout << std::setprecision(2) << std::setw(5) << ((y / (float)canvas.GetSize().y) * 100) << "%\n";
 		}
 	}
 	color3_t Scene::Trace(const ray_t& ray, float minDistance, float maxDistance, raycastHit_t& raycastHit, int depth)
