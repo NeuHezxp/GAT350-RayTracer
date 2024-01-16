@@ -43,7 +43,7 @@ namespace ray
             // set raycast hit
             raycastHit.distance = t;
             raycastHit.point = ray.GetPoint(t);
-            raycastHit.normal = normal;
+            raycastHit.normal = glm::normalize(normal);
             raycastHit.material = GetMaterial();
 
             return true;
